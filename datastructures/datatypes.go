@@ -10,3 +10,14 @@ type SinglyLinkList struct {
 	Tail   *Node
 	Length int
 }
+
+type Stack struct {
+	Top    *Node
+	Length int
+}
+
+type Queue struct {
+	First  *Node
+	Last   *Node
+	Length int
+}

@@ -9,6 +9,7 @@ import (
 func main() {
 	fmt.Println("Data structures")
 	singlyLinkedList()
+	stackAndQueues()
 
 }
 
@@ -37,4 +38,30 @@ func singlyLinkedList() {
 	//RemoveAt
 	singlyLinkedList.RemoveAt(0)
 	fmt.Println(singlyLinkedList, singlyLinkedList.Length)
+}
+
+func stackAndQueues() {
+	fmt.Println("===============Stack===================")
+	stack := datastructures.Stack{}
+	queue := datastructures.Queue{}
+	//Stack Push
+	stack.Push(10)
+	stack.Push(987980089789790898)
+	fmt.Println(*stack.Top, stack.Length)
+	//Stack Pop
+	value := stack.Pop()
+	fmt.Println(value, *stack.Top, stack.Length)
+	stack.Pop()
+	stack.Pop()
+	fmt.Println("===============Queue===================")
+	//Queue Enqueue
+	queue.Enqueue(100)
+	queue.Enqueue(200)
+	fmt.Println(*queue.First, queue.Length)
+	//Queue Dequeue
+	value = queue.Dequeue()
+	fmt.Println(value, *queue.First, queue.Length)
+	value = queue.Dequeue()
+	fmt.Println(value, queue, queue.Length)
+	queue.Dequeue()
 }
