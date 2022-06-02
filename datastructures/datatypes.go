@@ -5,9 +5,21 @@ type Node struct {
 	Next  *Node
 }
 
+type DoublePtrNode struct {
+	Value    int64
+	Next     *DoublePtrNode
+	Previous *DoublePtrNode
+}
+
 type SinglyLinkList struct {
 	Head   *Node
 	Tail   *Node
+	Length int
+}
+
+type DoublyLinkList struct {
+	Head   *DoublePtrNode
+	Tail   *DoublePtrNode
 	Length int
 }
 

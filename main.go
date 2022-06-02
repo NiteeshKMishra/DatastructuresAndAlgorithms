@@ -9,8 +9,8 @@ import (
 func main() {
 	fmt.Println("Data structures")
 	singlyLinkedList()
+	doublyLinkedList()
 	stackAndQueues()
-
 }
 
 func singlyLinkedList() {
@@ -38,6 +38,33 @@ func singlyLinkedList() {
 	//RemoveAt
 	singlyLinkedList.RemoveAt(0)
 	fmt.Println(singlyLinkedList, singlyLinkedList.Length)
+}
+
+func doublyLinkedList() {
+	fmt.Println("===============DoublyLinkedList===================")
+	doublyLinkedList := datastructures.DoublyLinkList{}
+	//Push
+	doublyLinkedList.AddFirst(23)
+	//Insert
+	doublyLinkedList.InsertAt(1, 25)
+	fmt.Println(*doublyLinkedList.Head, *doublyLinkedList.Tail, doublyLinkedList.Length)
+	//Unshift
+	doublyLinkedList.AddLast(28)
+	fmt.Println(*doublyLinkedList.Head, *doublyLinkedList.Tail, doublyLinkedList.Length)
+	//Contains
+	hasValue := doublyLinkedList.ListContains(25)
+	fmt.Printf("Does Linked list has value %v: %v\n", 25, hasValue)
+	//Reverse
+	doublyLinkedList.Reverse()
+	fmt.Println(*doublyLinkedList.Head, *doublyLinkedList.Tail, doublyLinkedList.Length)
+	//Pop
+	doublyLinkedList.RemoveLast()
+	//Shift
+	doublyLinkedList.RemoveFirst()
+	fmt.Println(*doublyLinkedList.Head, *doublyLinkedList.Tail, doublyLinkedList.Length)
+	//RemoveAt
+	doublyLinkedList.RemoveAt(0)
+	fmt.Println(doublyLinkedList, doublyLinkedList.Length)
 }
 
 func stackAndQueues() {
