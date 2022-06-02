@@ -33,3 +33,13 @@ type Queue struct {
 	Last   *Node
 	Length int
 }
+
+type TreeNode struct {
+	Value int64
+	Left  *TreeNode
+	Right *TreeNode
+}
+
+type BinarySearchTree struct {
+	Root *TreeNode
+}

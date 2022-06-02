@@ -11,6 +11,7 @@ func main() {
 	singlyLinkedList()
 	doublyLinkedList()
 	stackAndQueues()
+	binarySearchTree()
 }
 
 func singlyLinkedList() {
@@ -91,4 +92,24 @@ func stackAndQueues() {
 	value = queue.Dequeue()
 	fmt.Println(value, queue, queue.Length)
 	queue.Dequeue()
+}
+
+func binarySearchTree() {
+	fmt.Println("===============BinarySearchTree===================")
+	bst := datastructures.BinarySearchTree{}
+	//Insert
+	bst.Insert(10)
+	fmt.Println(bst.Root)
+	bst.Insert(12)
+	fmt.Println(bst.Root)
+	bst.Insert(8)
+	fmt.Println(bst.Root)
+	bst.Insert(15)
+	bst.Insert(9)
+	fmt.Println(bst.Root)
+	//Find
+	hasValue := bst.Search(7)
+	fmt.Println(bst.Root, hasValue)
+	hasValue = bst.Search(9)
+	fmt.Println(bst.Root, hasValue)
 }
