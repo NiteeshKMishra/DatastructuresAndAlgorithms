@@ -12,6 +12,7 @@ func main() {
 	doublyLinkedList()
 	stackAndQueues()
 	binarySearchTree()
+	treeTraversal()
 }
 
 func singlyLinkedList() {
@@ -112,4 +113,27 @@ func binarySearchTree() {
 	fmt.Println(bst.Root, hasValue)
 	hasValue = bst.Search(9)
 	fmt.Println(bst.Root, hasValue)
+}
+
+func treeTraversal() {
+	fmt.Println("===============Tree Traversal===================")
+	bst := datastructures.BinarySearchTree{}
+	bst.Insert(10)
+	bst.Insert(12)
+	bst.Insert(8)
+	bst.Insert(15)
+	bst.Insert(9)
+	bst.Insert(1)
+	//BFS
+	visited := bst.BFS()
+	fmt.Println(bst.Root, visited)
+	//DFS PreOrder
+	visited = bst.DFSPreOrder()
+	fmt.Println(bst.Root, visited)
+	//DFS PostOrder
+	visited = bst.DFSPostOrder()
+	fmt.Println(bst.Root, visited)
+	//DFS InOrder
+	visited = bst.DFSInOrder()
+	fmt.Println(bst.Root, visited)
 }
