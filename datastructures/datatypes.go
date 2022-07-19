@@ -43,3 +43,7 @@ type TreeNode struct {
 type BinarySearchTree struct {
 	Root *TreeNode
 }
+
+type BinaryHeap struct {
+	Values []int64
+}

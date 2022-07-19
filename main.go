@@ -13,6 +13,7 @@ func main() {
 	stackAndQueues()
 	binarySearchTree()
 	treeTraversal()
+	binaryHeap()
 }
 
 func singlyLinkedList() {
@@ -136,4 +137,24 @@ func treeTraversal() {
 	//DFS InOrder
 	visited = bst.DFSInOrder()
 	fmt.Println(bst.Root, visited)
+}
+
+func binaryHeap() {
+	fmt.Println("===============Binary Heap===================")
+	//Max binary heap
+	bh := datastructures.BinaryHeap{}
+	bh.MaxBinaryHeapInsert(41)
+	bh.MaxBinaryHeapInsert(39)
+	bh.MaxBinaryHeapInsert(33)
+	bh.MaxBinaryHeapInsert(18)
+	bh.MaxBinaryHeapInsert(27)
+	bh.MaxBinaryHeapInsert(12)
+	bh.MaxBinaryHeapInsert(55)
+	fmt.Println(bh.Values)
+
+	//MaxValue Extract
+	value := bh.BinaryHeapExtractMax()
+	fmt.Println(value, bh.Values)
+	value = bh.BinaryHeapExtractMax()
+	fmt.Println(value, bh.Values)
 }
