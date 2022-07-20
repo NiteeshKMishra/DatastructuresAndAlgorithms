@@ -47,3 +47,12 @@ type BinarySearchTree struct {
 type BinaryHeap struct {
 	Values []int64
 }
+
+type PriorityNode struct {
+	Value    int64
+	Priority int
+}
+
+type PriorityQueue struct {
+	Values []PriorityNode
+}

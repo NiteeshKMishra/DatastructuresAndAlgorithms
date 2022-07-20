@@ -14,6 +14,7 @@ func main() {
 	binarySearchTree()
 	treeTraversal()
 	binaryHeap()
+	priorityQueue()
 }
 
 func singlyLinkedList() {
@@ -157,4 +158,22 @@ func binaryHeap() {
 	fmt.Println(value, bh.Values)
 	value = bh.BinaryHeapExtractMax()
 	fmt.Println(value, bh.Values)
+}
+
+func priorityQueue() {
+	fmt.Println("===============Priority Queue===================")
+	p := datastructures.PriorityQueue{}
+	p.Enqueue(41, 1)
+	p.Enqueue(39, 4)
+	p.Enqueue(33, 5)
+	p.Enqueue(18, 1)
+	p.Enqueue(27, 3)
+	p.Enqueue(12, 2)
+	p.Enqueue(55, 4)
+	fmt.Println(p.Values)
+
+	value := p.Dequeue()
+	fmt.Println(value, p.Values)
+	value = p.Dequeue()
+	fmt.Println(value, p.Values)
 }

@@ -8,48 +8,46 @@ import (
 //Max binary Heap
 
 func bubbleUp(values []int64) []int64 {
-	index := len(values) - 1
-	parentIndex := int(math.Floor((float64(index) - 1) / 2))
-	for parentIndex >= 0 && values[index] > values[parentIndex] {
+	valueLength := len(values)
+	index := valueLength - 1
+	for index > 0 {
+		parentIndex := int(math.Floor((float64(index) - 1) / 2))
+		if values[index] <= values[parentIndex] {
+			break
+		}
 		values[parentIndex], values[index] = values[index], values[parentIndex]
-		index = int(parentIndex)
-		parentIndex = int(math.Floor((float64(index) - 1) / 2))
+		index = parentIndex
 	}
 	return values
 }
 
 func sinkDown(values []int64) []int64 {
 	arrLength := len(values)
-	if arrLength > 2 {
-		currentIndex := 0
-		values[currentIndex], values[arrLength-1] = values[arrLength-1], values[currentIndex]
-		for {
-			currentValue := values[currentIndex]
-			leftChildIndex := 2*currentIndex + 1
-			rightChildIndex := 2*currentIndex + 2
-			tempIndex := currentIndex
-			if leftChildIndex < arrLength {
-				leftChild := values[leftChildIndex]
-				if leftChild > currentValue {
-					tempIndex = leftChildIndex
-				}
+	currentIndex := 0
+	for {
+		currentValue := values[currentIndex]
+		leftChildIndex := 2*currentIndex + 1
+		rightChildIndex := 2*currentIndex + 2
+		tempIndex := currentIndex
+		if leftChildIndex < arrLength {
+			leftChild := values[leftChildIndex]
+			if leftChild > currentValue {
+				tempIndex = leftChildIndex
 			}
-			if rightChildIndex < arrLength {
-				leftChild := values[leftChildIndex]
-				rightChild := values[rightChildIndex]
-				if (tempIndex != currentIndex && rightChild > leftChild) ||
-					(tempIndex == currentIndex && rightChild > currentValue) {
-					tempIndex = rightChildIndex
-				}
-			}
-			if tempIndex == currentIndex {
-				break
-			}
-			values[currentIndex], values[tempIndex] = values[tempIndex], values[currentIndex]
-			currentIndex = tempIndex
 		}
-	} else if arrLength == 2 && values[1] > values[0] {
-		values[0], values[1] = values[1], values[0]
+		if rightChildIndex < arrLength {
+			leftChild := values[leftChildIndex]
+			rightChild := values[rightChildIndex]
+			if (tempIndex != currentIndex && rightChild > leftChild) ||
+				(tempIndex == currentIndex && rightChild > currentValue) {
+				tempIndex = rightChildIndex
+			}
+		}
+		if tempIndex == currentIndex {
+			break
+		}
+		values[currentIndex], values[tempIndex] = values[tempIndex], values[currentIndex]
+		currentIndex = tempIndex
 	}
 	return values
 }
@@ -65,8 +63,13 @@ func (bh *BinaryHeap) BinaryHeapExtractMax() int64 {
 		return -1
 	}
 	value := bh.Values[0]
-	bh.Values = bh.Values[1:]
-	bh.Values = sinkDown(bh.Values)
-	bh.Values = bubbleUp(bh.Values)
+	if len(bh.Values) > 1 {
+		lastValue := bh.Values[len(bh.Values)-1]
+		bh.Values = bh.Values[:len(bh.Values)-1]
+		bh.Values[0] = lastValue
+		bh.Values = sinkDown(bh.Values)
+	} else {
+		bh.Values = []int64{}
+	}
 	return value
 }
