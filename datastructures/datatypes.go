@@ -60,3 +60,7 @@ type PriorityQueue struct {
 type HashTable struct {
 	Values [][][]string
 }
+
+type Graph struct {
+	AdjacencyList map[string][]string
+}

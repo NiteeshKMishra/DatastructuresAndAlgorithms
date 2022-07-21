@@ -16,6 +16,7 @@ func main() {
 	binaryHeap()
 	priorityQueue()
 	hashTable()
+	graph()
 }
 
 func singlyLinkedList() {
@@ -200,4 +201,24 @@ func hashTable() {
 	//Get KeyValues
 	keyValues := h.KeyValues()
 	fmt.Println(keyValues)
+}
+
+func graph() {
+	fmt.Println("===============Graph===================")
+	g := datastructures.Graph{}
+	g.AdjacencyList = make(map[string][]string)
+	//Add vertex
+	g.AddVertex("Delhi")
+	g.AddVertex("Mumbai")
+	fmt.Println(g.AdjacencyList)
+	//Add edge
+	g.AddEdge("Delhi", "Mumbai")
+	g.AddEdge("Delhi", "Goa")
+	fmt.Println(g.AdjacencyList)
+	//Remove edge
+	g.RemoveEdge("Delhi", "Goa")
+	fmt.Println(g.AdjacencyList)
+	//Remove vertex
+	g.RemoveVertex("Mumbai")
+	fmt.Println(g.AdjacencyList)
 }
