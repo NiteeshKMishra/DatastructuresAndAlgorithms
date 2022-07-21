@@ -15,6 +15,7 @@ func main() {
 	treeTraversal()
 	binaryHeap()
 	priorityQueue()
+	hashTable()
 }
 
 func singlyLinkedList() {
@@ -176,4 +177,27 @@ func priorityQueue() {
 	fmt.Println(value, p.Values)
 	value = p.Dequeue()
 	fmt.Println(value, p.Values)
+}
+
+func hashTable() {
+	fmt.Println("===============Hash Table===================")
+	h := datastructures.HashTable{}
+	h.Values = make([][][]string, datastructures.HashTableLength)
+	//Set Values
+	h.Set("red", "#FF3F33")
+	h.Set("blue", "#3352FF")
+	h.Set("green", "#33FF52")
+	h.Set("red", "#FF5533")
+	fmt.Println(h.Values)
+	//Get values
+	value := h.Get("red")
+	fmt.Println(value)
+	value = h.Get("orange")
+	fmt.Println(value)
+	//Get Keys
+	keys := h.Keys()
+	fmt.Println(keys)
+	//Get KeyValues
+	keyValues := h.KeyValues()
+	fmt.Println(keyValues)
 }

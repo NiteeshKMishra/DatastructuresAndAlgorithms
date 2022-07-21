@@ -56,3 +56,7 @@ type PriorityNode struct {
 type PriorityQueue struct {
 	Values []PriorityNode
 }
+
+type HashTable struct {
+	Values [][][]string
+}
