@@ -17,6 +17,7 @@ func main() {
 	priorityQueue()
 	hashTable()
 	graph()
+	graphTraversal()
 }
 
 func singlyLinkedList() {
@@ -221,4 +222,21 @@ func graph() {
 	//Remove vertex
 	g.RemoveVertex("Mumbai")
 	fmt.Println(g.AdjacencyList)
+}
+
+func graphTraversal() {
+	fmt.Println("===============Graph Traversal===================")
+	g := datastructures.Graph{}
+	g.AdjacencyList = make(map[string][]string)
+	g.AddEdge("Delhi", "Mumbai")
+	g.AddEdge("Delhi", "Goa")
+	g.AddEdge("Goa", "Kolkata")
+	g.AddEdge("Mumbai", "Chennai")
+	fmt.Println(g.AdjacencyList)
+	visited := g.DFSRecursive("Delhi")
+	fmt.Println(visited)
+	visited = g.DFSIterative("Delhi")
+	fmt.Println(visited)
+	visited = g.BFS("Delhi")
+	fmt.Println(visited)
 }
