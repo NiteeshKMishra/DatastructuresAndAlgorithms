@@ -246,7 +246,6 @@ func graphTraversal() {
 
 func graphAlgorithms() {
 	fmt.Println("===============Graph Algorithms===================")
-	//Dijkstra
 	g := datastructures.WeightedGraph{}
 	g.AdjacencyList = make(map[string][]datastructures.WeightedGraphNode)
 	g.AddEdge("Delhi", "Mumbai", 720)
@@ -254,6 +253,14 @@ func graphAlgorithms() {
 	g.AddEdge("Nagpur", "Mumbai", 100)
 	g.AddEdge("Delhi", "Goa", 450)
 	g.AddEdge("Goa", "Mumbai", 100)
-	path := algorithms.ShortestPath(&g, "Delhi", "Mumbai")
+	//Dijkstra
+	path := algorithms.ShortestPathDijkstra(&g, "Delhi", "Mumbai")
+	fmt.Println(path)
+	//BellmanFord
+	path = algorithms.ShortestPathBellmanFord(&g, "Delhi", "Mumbai")
+	fmt.Println(path)
+	//BellmanFord negative cycle
+	g.AddEdge("Nagpur", "Mumbai", -100)
+	path = algorithms.ShortestPathBellmanFord(&g, "Delhi", "Mumbai")
 	fmt.Println(path)
 }
