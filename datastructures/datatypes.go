@@ -49,8 +49,8 @@ type BinaryHeap struct {
 }
 
 type PriorityNode struct {
-	Value    int64
-	Priority int
+	Value    string
+	Priority int64
 }
 
 type PriorityQueue struct {

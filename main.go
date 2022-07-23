@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 
+	"github.com/niteeshkrmishra/dsandalgo/algorithms"
 	"github.com/niteeshkrmishra/dsandalgo/datastructures"
 )
 
@@ -18,6 +19,8 @@ func main() {
 	hashTable()
 	graph()
 	graphTraversal()
+	fmt.Println("Algorithms")
+	graphAlgorithms()
 }
 
 func singlyLinkedList() {
@@ -166,13 +169,13 @@ func binaryHeap() {
 func priorityQueue() {
 	fmt.Println("===============Priority Queue===================")
 	p := datastructures.PriorityQueue{}
-	p.Enqueue(41, 1)
-	p.Enqueue(39, 4)
-	p.Enqueue(33, 5)
-	p.Enqueue(18, 1)
-	p.Enqueue(27, 3)
-	p.Enqueue(12, 2)
-	p.Enqueue(55, 4)
+	p.Enqueue("Red", 1)
+	p.Enqueue("Blue", 4)
+	p.Enqueue("Orange", 5)
+	p.Enqueue("Yellow", 1)
+	p.Enqueue("Black", 3)
+	p.Enqueue("White", 2)
+	p.Enqueue("Grey", 4)
 	fmt.Println(p.Values)
 
 	value := p.Dequeue()
@@ -239,4 +242,18 @@ func graphTraversal() {
 	fmt.Println(visited)
 	visited = g.BFS("Delhi")
 	fmt.Println(visited)
+}
+
+func graphAlgorithms() {
+	fmt.Println("===============Graph Algorithms===================")
+	//Dijkstra
+	g := datastructures.WeightedGraph{}
+	g.AdjacencyList = make(map[string][]datastructures.WeightedGraphNode)
+	g.AddEdge("Delhi", "Mumbai", 720)
+	g.AddEdge("Delhi", "Nagpur", 560)
+	g.AddEdge("Nagpur", "Mumbai", 100)
+	g.AddEdge("Delhi", "Goa", 450)
+	g.AddEdge("Goa", "Mumbai", 100)
+	path := algorithms.ShortestPath(&g, "Delhi", "Mumbai")
+	fmt.Println(path)
 }

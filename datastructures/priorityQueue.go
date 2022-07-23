@@ -52,7 +52,7 @@ func sinkUp(values []PriorityNode) []PriorityNode { //reaarange elements after r
 	return values
 }
 
-func (p *PriorityQueue) Enqueue(value int64, priority int) {
+func (p *PriorityQueue) Enqueue(value string, priority int64) {
 	newNode := PriorityNode{
 		Value:    value,
 		Priority: priority,
