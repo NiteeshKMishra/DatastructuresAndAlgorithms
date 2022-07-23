@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"sort"
 
 	"github.com/niteeshkrmishra/dsandalgo/algorithms"
 	"github.com/niteeshkrmishra/dsandalgo/datastructures"
@@ -20,6 +21,7 @@ func main() {
 	graph()
 	graphTraversal()
 	fmt.Println("Algorithms")
+	searchingAlgorithms()
 	graphAlgorithms()
 }
 
@@ -263,4 +265,18 @@ func graphAlgorithms() {
 	g.AddEdge("Nagpur", "Mumbai", -100)
 	path = algorithms.ShortestPathBellmanFord(&g, "Delhi", "Mumbai")
 	fmt.Println(path)
+}
+
+func searchingAlgorithms() {
+	fmt.Println("===============Search Algorithms===================")
+	list := []int{67, 78, 12, 78, 23, 49, 90, 81}
+	//Linear Search
+	indexFound := algorithms.LinerSearch(list, 12)
+	indexNotFound := algorithms.LinerSearch(list, 22)
+	fmt.Println(indexFound, indexNotFound)
+	//Binary Search
+	sort.Ints(list)
+	indexFound = algorithms.BinarySearch(list, 90)
+	indexNotFound = algorithms.BinarySearch(list, 22)
+	fmt.Println(indexFound, indexNotFound)
 }
