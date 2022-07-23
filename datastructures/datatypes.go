@@ -64,3 +64,12 @@ type HashTable struct {
 type Graph struct {
 	AdjacencyList map[string][]string
 }
+
+type WeightedGraphNode struct {
+	Vertex string
+	Weight int64
+}
+
+type WeightedGraph struct {
+	AdjacencyList map[string][]WeightedGraphNode
+}
