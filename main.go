@@ -22,6 +22,7 @@ func main() {
 	graphTraversal()
 	fmt.Println("Algorithms")
 	searchingAlgorithms()
+	sortingAlgorithms()
 	graphAlgorithms()
 }
 
@@ -279,4 +280,31 @@ func searchingAlgorithms() {
 	indexFound = algorithms.BinarySearch(list, 90)
 	indexNotFound = algorithms.BinarySearch(list, 22)
 	fmt.Println(indexFound, indexNotFound)
+}
+
+func sortingAlgorithms() {
+	fmt.Println("===============Sorting Algorithms===================")
+	//Bubble Sort
+	list := []int{67, 78, 12, 78, 23, 49, 90, 81}
+	algorithms.BubbleSort(list)
+	fmt.Println(list)
+	//Selection Sort
+	list = []int{67, 78, 12, 78, 23, 49, 90, 81}
+	algorithms.SelectionSort(list)
+	fmt.Println(list)
+	//Insertion Sort
+	list = []int{67, 78, 12, 78, 23, 49, 90, 81}
+	algorithms.InsertionSort(list)
+	fmt.Println(list)
+	//Merge Sort
+	list = []int{67, 78, 12, 78, 23, 49, 90, 81}
+	sortedList := algorithms.MergeSort(list)
+	fmt.Println(list, sortedList)
+	//Quick sort
+	sortedList = algorithms.QuickSort(list)
+	fmt.Println(list, sortedList)
+	//Radix Sort
+	list = []int{67, 78768, 1256, 788, 23, 4899, 900, 8}
+	sortedList = algorithms.RadixSort(list)
+	fmt.Println(list, sortedList)
 }
